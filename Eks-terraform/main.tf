@@ -29,7 +29,7 @@ data "aws_vpc" "default" {
 data "aws_subnets" "public" {
   filter {
     name   = "vpc-id"
-    values = ['us-east-1a', 'us-east-1b']
+    values = [data.aws_vpc.default.id]
   }
 }
 #cluster provision
